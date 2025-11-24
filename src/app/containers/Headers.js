@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { signInWithGoogle, signOut } from "../lib/fireabase";
 import { useAuth } from "../lib/useAuth";
+import { getSchools } from "../lib/reads";
 
 export const Header = () => {
   const { user, loading } = useAuth();
