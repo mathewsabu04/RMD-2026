@@ -1,7 +1,13 @@
 export default function Home() {
+  const schools = getSchools();
+  console.log(schools);
   return (
     <div>
-      <h1>RMD</h1>
+      {schools.map((school) => (
+        <div>
+         {school.name}
+        </div>
+      ))}
     </div>
   );
 }
