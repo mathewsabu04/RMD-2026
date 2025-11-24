@@ -1,21 +1,25 @@
 "use client";
 import Link from "next/link";
-import { signInWithGoogle } from "../lib/fireabase";
+import { signInWithGoogle, signOut } from "../lib/fireabase";
+import { useAuth } from "../lib/useAuth";
 
 export const Header = () => {
+  const { user, loading } = useAuth();
+  console.log(user, loading);
   return (
     <div className="py-4 px-8 border-b font-medium flex items-center justify-between">
       <Link href={"/"} className="text-lg font-semibold">
         RMD
       </Link>
-
-      <button
-        onClick={signInWithGoogle}
-        className="hover:underline"
-        type="button"
-      >
-        Log in
-      </button>
+      {!loading && (
+        <button
+          onClick={user ? signOut : signInWithGoogle}
+          className="hover:underline"
+          type="button"
+        >
+          Log {user ? <>out</> : <>in</>}
+        </button>
+      )}
     </div>
   );
 };

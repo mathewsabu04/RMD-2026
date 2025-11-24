@@ -35,7 +35,7 @@ export const signInWithGoogle = async () => {
 
 export const signOut = async () => {
   try {
-    await signOut(auth);
+    await firebaseSignOut(auth);
     window.alert("Signed out");
   } catch (error) {
     window.alert(error.message);
