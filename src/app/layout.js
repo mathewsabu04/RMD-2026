@@ -1,5 +1,5 @@
 import "./globals.css";
-
+import { Header } from "./containers/Headers";
 export const metadata = {
   title: "RMD",
   description: "RMD App",
@@ -8,7 +8,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header/>
+        <section className="px-8">{children}</section>
+      </body>
     </html>
   );
 }
