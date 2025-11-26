@@ -7,10 +7,9 @@ import { getSchools } from "../lib/reads";
 export const Header = () => {
   const { user, loading } = useAuth();
   return (
-    <div className="py-4 px-8 border-b font-medium flex items-center justify-between">
-      <Link href={"/"} className="text-lg font-semibold">
-        RMD
-      </Link>
+    <div className="py-4 px-8 border-b font-medium flex justify-between">
+      <Link href={"/"}>RMD</Link>
+
       {!loading && (
         <button
           onClick={user ? signOut : signInWithGoogle}
