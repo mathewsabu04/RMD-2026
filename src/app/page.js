@@ -1,15 +1,25 @@
 import { getSchools } from "./lib/reads";
+import Link from "next/link";
+
 export default async function Home() {
   const schools = await getSchools();
+
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Rate College Dorms at RMD </h1>
+    <div className="space-y-8">
+      <h1 className="text-3xl font-medium">Rate College Dorms at RMD</h1>
+
       <div>
-        <p className="font-medium text-lg, mb-2">Select your school</p>
+        <p className="font-medium">Select your school</p>
+        {schools.map((school) => (
+          <Link
+            className="block hover:underline"
+            href={`/dorms/${school.schoolID}`}
+            key={school.id}
+          >
+            {school.schoolName}
+          </Link>
+        ))}
       </div>
-      {schools.map((school) => (
-        <div key={school.id}>{school.schoolName}</div>
-      ))}
     </div>
   );
 }
