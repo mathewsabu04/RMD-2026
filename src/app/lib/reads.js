@@ -25,3 +25,7 @@ export const getDorms = async (schoolID) => {
     id: docSnap.id,
   }));
 };
+
+export const userIsAdmin = async (uid) => {
+  return (await getDoc(doc(db, "admins", uid))).exists();
+};

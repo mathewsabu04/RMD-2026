@@ -19,9 +19,6 @@ export default async function Page({ params }) {
 
   const school = await getSchoolFromSchoolID(schoolID);
 
-  if (!school) {
-    return <div>School not found</div>;
-  }
 
   return (
     <div className="space-y-8">
