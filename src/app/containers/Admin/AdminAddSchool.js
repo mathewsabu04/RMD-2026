@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useAuth } from "../../lib/useAuth";
 import { ButtonPrimary } from "../../../components/Button";
 import { setSchoolDoc } from "../../lib/writes";
+import { auth } from "../../lib/fireabase";
 
 export const AdminAddSchool = () => {
-  const [schoolName, setSchoolName] = useState(" ");
+  const [schoolName, setSchoolName] = useState("");
   const { admin } = useAuth();
   if (!admin) {
     return null;
