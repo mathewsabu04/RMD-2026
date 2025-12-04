@@ -12,6 +12,7 @@ export const AdminAddSchool = () => {
     return null;
   }
 
+
   const submitSchool = async (e) => {
     e.preventDefault();
     try {

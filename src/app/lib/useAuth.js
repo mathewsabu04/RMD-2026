@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { auth } from "./fireabase";
+import { auth } from "@/app/lib/fireabase";
+import { onAuthStateChanged } from "firebase/auth";
 import { userIsAdmin } from "./reads";
 
 export const useAuth = () => {
@@ -8,10 +9,10 @@ export const useAuth = () => {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
       if (user) {
-        const isAdmin = userIsAdmin(user.uid);
+        const isAdmin = await userIsAdmin(user.uid);
         setAdmin(isAdmin);
         if (isAdmin) {
           window.alert("You are an admin");
