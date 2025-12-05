@@ -1,6 +1,7 @@
 import { getSchoolFromSchoolID, getDorms } from "../../lib/reads";
-
+import { AdminAddDorm } from "../../containers/Dorms/AdminAddDorm";
 import Link from "next/link";
+
 export async function generateMetadata({ params }) {
   const { schoolID } = await params;
   const school = await getSchoolFromSchoolID(schoolID);
@@ -18,7 +19,6 @@ export default async function Page({ params }) {
   console.log(dorms);
 
   const school = await getSchoolFromSchoolID(schoolID);
-
 
   return (
     <div className="space-y-8">
@@ -45,6 +45,7 @@ export default async function Page({ params }) {
           </li>
         ))}
       </ul>
+      <AdminAddDorm schoolID={schoolID} />
     </div>
   );
 }

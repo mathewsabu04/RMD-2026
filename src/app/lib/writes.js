@@ -18,3 +18,12 @@ export const setSchoolDoc = async (schoolName) => {
     schoolID: schoolID,
   });
 };
+
+export const setDormDoc = ({ schoolID, dormName }) => {
+  const dormID = stringToId(`${schoolID} ${stringToId(dormName)}`);
+  return setDoc(doc(db, "dorms", dormID), {
+    schoolID: schoolID,
+    dormID,
+    dormName,
+  });
+};
