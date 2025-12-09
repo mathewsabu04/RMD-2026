@@ -1,6 +1,7 @@
 import { getDormNameFromDormID } from "@/app/lib/reads";
 import { getReviews } from "@/app/lib/reads";
 import { getSchoolFromSchoolID } from "@/app/lib/reads";
+import { WriteReview } from "@/app/containers/Reviews/WriteReview";
 import Link from "next/link";
 
 export async function generateMetadata({ params }) {
@@ -30,7 +31,7 @@ export default async function Page({ params }) {
 
         <h1 className="text-3xl font-bold">{dorm.dormName} Reviews</h1>
       </div>
-
+      <WriteReview dorm={dorm} school={school} />
       <div className="space-y-4">
         {reviews && reviews.length > 0 ? (
           reviews.map((review) => <div key={review.uid}>{review.comment}</div>)
