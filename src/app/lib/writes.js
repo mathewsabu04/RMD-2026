@@ -1,7 +1,8 @@
 import { db } from "./fireabase";
 import { setDoc } from "firebase/firestore";
 import { doc } from "firebase/firestore";
-
+import { collection } from "firebase/firestore";
+import { addDoc } from "firebase/firestore";
 // Converts a string (e.g. school name) to a valid ID by lowercasing, removing non-alphanumeric characters, and replacing spaces with dashes
 export function stringToId(str) {
   return str
@@ -26,4 +27,8 @@ export const setDormDoc = ({ schoolID, dormName }) => {
     dormID,
     dormName,
   });
+};
+
+export const setReviewDoc = (data) => {
+  return addDoc(collection(db, "reviews"), data);
 };

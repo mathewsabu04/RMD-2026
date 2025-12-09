@@ -14,9 +14,6 @@ export const useAuth = () => {
       if (user) {
         const isAdmin = await userIsAdmin(user.uid);
         setAdmin(isAdmin);
-        if (isAdmin) {
-          window.alert("You are an admin");
-        }
       }
       setLoading(false);
     });

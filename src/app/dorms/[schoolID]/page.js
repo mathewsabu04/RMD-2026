@@ -38,7 +38,7 @@ export default async function Page({ params }) {
           <li key={dorm.id}>
             <Link
               className="block text-sm hover:underline py-2"
-              href={`/reviews/${schoolID}/${dorm.dormID}`}
+              href={`/reviews/${schoolID}/${dorm.id}`}
             >
               {dorm.dormName}
             </Link>
